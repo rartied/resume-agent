@@ -124,13 +124,18 @@ Once both files are saved and confirmed, say:
 
 1. Read `resume.md` and `profile.md`.
 
-2. Analyze the job description for:
+2. Get the job description:
+   - If the user provided a URL, fetch the page content using the `web_fetch` tool and extract the job description from it
+   - If the user pasted the job description directly, use it as-is
+   - If the fetched page does not contain a clear job description, tell the user and ask them to paste the text directly
+
+3. Analyze the job description for:
    - Required skills and qualifications
    - Nice-to-haves
    - Responsibilities and day-to-day expectations
    - Tone and culture signals (fast-paced, research-heavy, technical, startup, enterprise, etc.)
 
-3. Produce a Gap Analysis with these four sections:
+4. Produce a Gap Analysis with these four sections:
 
    ### Strong Matches
    List specific experiences or skills from the resume that directly satisfy requirements. Reference actual resume content — be concrete.
@@ -157,9 +162,14 @@ Once both files are saved and confirmed, say:
 
 1. Read `resume.md` and `profile.md`.
 
-2. If a Gap Analysis has not been done yet, run Workflow 1 internally before tailoring.
+2. Get the job description:
+   - If the user provided a URL, fetch the page content using the `web_fetch` tool and extract the job description from it
+   - If the user pasted the job description directly, use it as-is
+   - If the fetched page does not contain a clear job description, tell the user and ask them to paste the text directly
 
-3. Produce a tailored resume in Markdown:
+3. If a Gap Analysis has not been done yet, run Workflow 1 internally before tailoring.
+
+4. Produce a tailored resume in Markdown:
    - Reorder and emphasize experiences most relevant to this role
    - Rewrite bullet points to mirror the language and priorities of the job description — without fabricating anything
    - Remove or de-emphasize clearly irrelevant content
@@ -169,14 +179,14 @@ Once both files are saved and confirmed, say:
      > CHANGED: [brief note on what was changed and why]
      ```
 
-4. Produce a cover letter in Markdown:
+5. Produce a cover letter in Markdown:
    - 3–4 paragraphs, professional but conversational
    - Opening: why this role and company specifically — reference real details from the job description
    - Middle: 2–3 most compelling experiences mapped directly to role requirements
    - Closing: forward-looking, confident, call to action
    - Do not use generic openers like "I am excited to apply" or "I believe I am a strong candidate"
 
-5. Produce a `.docx` file of the tailored resume:
+6. Produce a `.docx` file of the tailored resume:
    - Install if needed: `npm install -g docx`
    - Use clean, professional resume formatting: name and contact info in a styled header block, section headings using Heading 1 style, job titles bold, dates right-aligned using tab stops, bullet points using proper `LevelFormat.BULLET` numbering config (never unicode bullets)
    - Page size: US Letter (12240 x 15840 DXA), 1 inch margins on all sides
@@ -184,7 +194,7 @@ Once both files are saved and confirmed, say:
    - Do NOT include `> CHANGED:` annotations in the docx — those are for the conversation only
    - Save the file as `resume-[company-name].docx` and present it for download using the `present_files` tool
 
-6. Conversation output format:
+7. Conversation output format:
    - `## Cover Letter` — full markdown cover letter in the chat
    - `## What Changed` — bulleted summary of all resume modifications and why
    - The `.docx` resume file presented for download
