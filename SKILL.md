@@ -171,7 +171,7 @@ Once both files are saved and confirmed, say:
 
 4. Produce a tailored resume in Markdown:
    - Reorder and emphasize experiences most relevant to this role
-   - Rewrite bullet points to mirror the language and priorities of the job description — without fabricating anything
+   - - Rewrite bullet points to mirror the language and priorities of the job description. When rewriting, do not stretch to the point where the bullet no longer accurately reflects what the user did. If a direct mapping doesn't exist, leave the bullet plain rather than force a connection.
    - Remove or de-emphasize clearly irrelevant content
    - Keep the summary tightly focused on this specific role
    - Flag every change using this format inline:
